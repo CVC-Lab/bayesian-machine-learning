@@ -5,10 +5,10 @@ import keras
 from keras import backend as K
 from keras import layers
 from keras.models import Model, Sequential
-
+import tensorflow as tf
 import matplotlib.pyplot as plt
 from matplotlib.colors import LogNorm
-
+import pdb
 # Shape of MNIST images
 image_shape = (28, 28, 1)
 
@@ -21,6 +21,7 @@ def create_encoder(latent_dim):
       of the variational distriution q(t|x;phi), mean and log 
       variance. 
     '''
+
     encoder_iput = layers.Input(shape=image_shape, name='image')
     
     x = layers.Conv2D(32, 3, padding='same', activation='relu')(encoder_iput)
@@ -32,6 +33,7 @@ def create_encoder(latent_dim):
 
     t_mean = layers.Dense(latent_dim, name='t_mean')(x)
     t_log_var = layers.Dense(latent_dim, name='t_log_var')(x)
+    
 
     return Model(encoder_iput, [t_mean, t_log_var], name='encoder')
 
@@ -49,7 +51,6 @@ def create_decoder(latent_dim):
     x = layers.Reshape((14, 14, 64))(x)
     x = layers.Conv2DTranspose(32, 3, padding='same', activation='relu', strides=(2, 2))(x)
     x = layers.Conv2D(1, 3, padding='same', activation='sigmoid', name='image')(x)
-    
     return Model(decoder_input, x, name='decoder')
 
 def sample(args):

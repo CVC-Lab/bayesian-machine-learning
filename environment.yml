@@ -1,0 +1,26 @@
+# for arm processors M1/M2
+name: bml
+channels:
+  - apple
+  - conda-forge
+  - anaconda
+dependencies:
+  - python=3.10  ## specify desired version
+  - pip
+  - keras
+  - matplotlib
+  - scipy
+  - jupyter
+  - opencv
+  - pydot
+  - graphviz
+  - pymc>5
+
+  ## uncomment for use with Jupyter
+  ## - ipykernel
+
+  ## PyPI packages
+  - pip:
+    - tensorflow-macos
+    - tensorflow-metal  ## optional, but recommended
+    - tensorflow-probability

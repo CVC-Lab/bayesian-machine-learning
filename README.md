@@ -53,3 +53,11 @@ Dependencies are specified in `requirements.txt` files in subdirectories.
 - [Conditional generation via Bayesian optimization in latent space](https://nbviewer.jupyter.org/github/krasserm/bayesian-machine-learning/blob/dev/autoencoder-applications/variational_autoencoder_opt.ipynb). 
   Describes an approach for conditionally generating outputs with desired properties by doing Bayesian optimization in 
   latent space learned by a variational autoencoder. Example application implemented with Keras and GPyOpt.
+
+
+## Installation
+
+1. Install major packages via anaconda
+```conda env create -f environment.yml``` and activate the environment `conda activate bml`
+2. Download github repository from [here](https://github.com/SheffieldML/GPy). Navigate to the GPy-devel downloaded github repository
+```python setup.py develop```
