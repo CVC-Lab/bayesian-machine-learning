@@ -24,3 +24,6 @@ dependencies:
     - tensorflow-macos
     - tensorflow-metal  ## optional, but recommended
     - tensorflow-probability
+    - torch
+    - torchvision
+    - torchaudio
